@@ -1,0 +1,339 @@
+.careerSection {
+  background-color: #fff;
+  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  padding: 6rem 2rem;
+}
+
+/* === CONTAINER === */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 3rem;
+  width: 85%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* === LEFT CONTENT === */
+.leftContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #111;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+
+.subtext {
+  color: #444;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 1.8rem;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.featuresList li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #222;
+  line-height: 1.5;
+}
+
+.icon {
+  color: #ff4c00;
+  margin-right: 0.6rem;
+  font-size: 1rem;
+}
+
+/* === CTA SECTION === */
+.ctaRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: #ff4c00;
+  color: #fff;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #381200;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #381200;
+}
+
+.userNote {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #111;
+  text-align: left;
+}
+
+.userAvatars {
+  display: flex;
+  align-items: center;
+}
+
+.userAvatars img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-left: -8px;
+  object-fit: cover;
+}
+
+.userAvatars img:first-child {
+  margin-left: 0;
+}
+
+.highlight {
+  color: #ff4c00;
+  font-weight: 600;
+}
+
+/* === RIGHT STATS GRID === */
+.rightGrid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.rightGridTop,
+.rightGridBottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 50%;
+}
+
+.statCard {
+  background-color: #000;
+  color: #fff;
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 1.8rem;
+  text-align: left;
+  flex: 1;
+  height: 100%;
+  transition: all 0.25s ease;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.statValue {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+/* === TABLET VIEW === */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    gap: 2.5rem;
+  }
+
+  .rightGrid {
+    order: 1;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .leftContent {
+    order: 2;
+    width: 100%;
+    text-align: center;
+  }
+
+  .heading {
+    font-size: 2.3rem;
+  }
+
+  .subtext {
+    font-size: 1.1rem;
+    width: 90%;
+    margin: 0 auto 2rem;
+  }
+
+  .featuresList li {
+    justify-content: center;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .userNote {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* === MOBILE VIEW === */
+@media (max-width: 768px) {
+  .careerSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  /* Stats Grid First */
+  .rightGrid {
+    order: 1;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1rem;
+  }
+
+  .rightGridTop,
+  .rightGridBottom {
+    display: contents; /* flatten rows to grid */
+  }
+
+  .statCard {
+    align-items: flex-start;
+    text-align: left;
+    padding: 1.2rem;
+  }
+
+  /* Text Below */
+  .leftContent {
+    order: 2;
+    width: 100%;
+    text-align: left;
+  }
+
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtext {
+    font-size: 1rem;
+    width: 95%;
+    margin: 0 auto 1.8rem;
+  }
+
+  .featuresList {
+    align-items: flex-start;
+  }
+
+  .featuresList li {
+    justify-content: flex-start;
+    font-size: 0.95rem;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ctaButton {
+    font-size: 0.95rem;
+    padding: 0.9rem 1.2rem;
+  }
+
+  .userNote {
+    font-size: 0.85rem;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: flex-start;
+  }
+
+  .userNote p {
+    font-size: 0.85rem;
+    text-align: left;
+  }
+}
+
+/* === SMALL PHONES === */
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.7rem;
+  }
+
+  .subtext {
+    font-size: 0.9rem;
+  }
+
+  .featuresList li {
+    font-size: 0.9rem;
+  }
+
+  .statValue {
+    font-size: 2.8rem;
+  }
+
+  .statLabel {
+    font-size: 0.75rem;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .ctaButton {
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .userNote p {
+    font-size: 0.85rem;
+    text-align: left;
+  }
+}

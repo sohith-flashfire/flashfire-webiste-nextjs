@@ -1,0 +1,153 @@
+.footer {
+  background-color: #f55d1d;
+  color: #fff;
+  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  padding: 3rem 2rem 1.5rem;
+}
+
+/* === Top Section === */
+.footerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* === Logo === */
+.logoSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logoText {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* === Link Groups === */
+.linksContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.linkRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.linkRow h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff7f4;
+  width: 10rem;
+  flex-shrink: 0;
+}
+
+.linkItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+}
+
+.linkItems a,
+.footerLink {
+  color: #fff;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.linkItems a:hover,
+.footerLink:hover {
+  opacity: 0.8;
+}
+
+/* === Social Icons Row === */
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialIcons a {
+  color: #fff;
+  font-size: 1.2rem;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.socialIcons a:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+/* === Bottom Section === */
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.copyText {
+  margin: 0;
+}
+
+.companyText {
+  margin: 0;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .footerTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .linksContainer {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .linkItems {
+    flex-direction: column;
+  }
+
+  .linkRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

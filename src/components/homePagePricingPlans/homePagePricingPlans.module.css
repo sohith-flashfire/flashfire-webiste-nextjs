@@ -1,0 +1,186 @@
+.pricingSection {
+  background-color: #fff;
+  padding: 4rem 2rem;
+  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  text-align: center;
+}
+
+.header {
+  margin: 0 auto 3rem;
+}
+
+.header h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.header p {
+  max-width: 35rem;
+  margin: 0 auto;
+  color: #000;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.guaranteeBox {
+  background-color: #fff8f5;
+  border: 1px solid #f1e4df;
+  border-radius: 0.1rem;
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.guaranteeText h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: #000;
+}
+
+.guaranteeText p {
+  font-size: 1rem;
+  color: #000;
+  line-height: 1.6;
+  max-width: 32rem;
+}
+
+.highlight {
+  color: #ff4c00;
+  font-weight: 600;
+}
+
+.guaranteeLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ff4c00;
+  font-weight: 600;
+  gap: 0.5rem;
+}
+
+.guaranteeLogo p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #ff4c00;
+}
+
+.guaranteeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: #ff4c00;
+  border-radius: 0.4rem;
+  padding: 1rem;
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* === Tablet View === */
+@media (max-width: 1024px) {
+  .header h2 {
+    font-size: 2.4rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  .cardsContainer {
+    gap: 1.2rem;
+  }
+
+  .guaranteeBox {
+    width: 90%;
+    padding: 2rem;
+  }
+}
+
+/* === Mobile View === */
+@media (max-width: 768px) {
+  .pricingSection {
+    padding: 1rem 1.5rem;
+  }
+
+  .header {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .header h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .header p {
+    font-size: 0.95rem;
+    width: 90%;
+  }
+
+  .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .guaranteeBox {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    gap: 1.2rem;
+    padding: 1.5rem;
+  }
+
+  .guaranteeText h3 {
+    font-size: 1.2rem;
+  }
+
+  .guaranteeText p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .guaranteeLogo {
+    font-size: 0.9rem;
+  }
+
+  .guaranteeIcon {
+    font-size: 1.6rem;
+  }
+}
+
+/* === Small Phones === */
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 1.7rem;
+  }
+
+  .header p {
+    font-size: 0.9rem;
+  }
+
+  .guaranteeText p {
+    font-size: 0.85rem;
+  }
+}

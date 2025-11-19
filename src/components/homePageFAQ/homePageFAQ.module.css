@@ -1,0 +1,299 @@
+.faqSection {
+  background-color: #fffaf8;
+  padding: 6rem 2rem;
+  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+}
+
+/* === HEADER === */
+.header {
+  text-align: center;
+  width: 60%;
+  margin: 0 auto 3rem;
+}
+
+.header h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 1rem;
+}
+
+.header p {
+  width: 60%;
+  margin: 0 auto 3rem;
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* === FAQ CONTAINER === */
+.faqContainer {
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.03);
+}
+
+.faqItem {
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+.faqQuestion {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111;
+  text-align: left;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.faqQuestion:hover {
+  background-color: #fff7f3;
+}
+
+.icon {
+  font-size: 0.9rem;
+  color: #ff4c00;
+}
+
+.faqAnswer {
+  padding: 0 2rem 1.5rem 2rem;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-0.3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === ACTIVE STATE === */
+.active {
+  border-left: 0.2rem solid #ff4c00;
+  background-color: #fff7f3;
+}
+
+.active .faqQuestion {
+  color: #ff4c00;
+}
+
+/* === DEMO SECTION === */
+.demoSectionOuter {
+  border: 1px solid #e5e5e5;
+  padding: 0.4rem;
+  width: 90%;
+  margin: 8rem auto 0;
+  border-radius: 0.3rem;
+}
+
+.demoSection {
+  background-color: #ff4c00;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.2rem;
+  padding: 3rem 2rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+.demoSubheading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  margin-bottom: 1rem;
+}
+
+.demoHeading {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02rem;
+}
+
+.fireIcon {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.demoText {
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 38rem;
+  margin: 0 auto 2rem;
+}
+
+.demoText em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.demoButton {
+  background-color: #fff;
+  color: #111;
+  border: 0.1rem solid #111;
+  border-radius: 0.4rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.2rem 0 #000;
+}
+
+.demoButton:hover {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.4rem 0 #000;
+}
+
+.demoNote {
+  font-size: 0.9rem;
+  color: #fff;
+  opacity: 0.9;
+  margin-top: 1.5rem;
+}
+
+/* === TABLET === */
+@media (max-width: 1024px) {
+  .header {
+    width: 80%;
+  }
+
+  .header p {
+    width: 70%;
+  }
+
+  .faqContainer {
+    width: 70%;
+  }
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .faqSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .header {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .header h2 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  .header p {
+    width: 90%;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .faqContainer {
+    width: 100%;
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.05);
+  }
+
+  .faqQuestion {
+    font-size: 1rem;
+    padding: 1.2rem 1.4rem;
+  }
+
+  .faqAnswer {
+    padding: 0 1.4rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .demoSectionOuter {
+    width: 100%;
+    margin-top: 6rem;
+  }
+
+  .demoSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .demoHeading {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .demoSubheading {
+    font-size: 1rem;
+  }
+
+  .demoText {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .demoButton {
+    font-size: 0.95rem;
+    padding: 0.9rem 1.4rem;
+  }
+
+  .demoNote {
+    font-size: 0.85rem;
+  }
+}
+
+/* === SMALL PHONES === */
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 1.5rem;
+  }
+
+  .header p {
+    font-size: 0.9rem;
+  }
+
+  .faqQuestion {
+    font-size: 0.9rem;
+    padding: 1rem 1.2rem;
+  }
+
+  .faqAnswer {
+    font-size: 0.85rem;
+    padding: 0 1.2rem 1rem;
+  }
+
+  .demoHeading {
+    font-size: 1.6rem;
+  }
+
+  .demoText {
+    font-size: 0.85rem;
+  }
+
+  .demoButton {
+    font-size: 0.9rem;
+  }
+
+  .demoNote {
+    font-size: 0.8rem;
+  }
+}

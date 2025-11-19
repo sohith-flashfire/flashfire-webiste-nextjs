@@ -1,0 +1,74 @@
+.videoContainer {
+  background: linear-gradient(to bottom, #f9e8e0, #ffffff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 4rem 2rem;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 85%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  /* border-radius: 1rem; */
+  padding: 0.3rem;
+  overflow: hidden;
+  background-color: #fff6f4;
+  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); */
+}
+
+/* === Sharp Orange Corner Borders === */
+.videoWrapper::before,
+.videoWrapper::after,
+.videoWrapper span::before,
+.videoWrapper span::after {
+  content: "";
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 0.15rem solid #ff4c00;
+  pointer-events: none;
+}
+
+/* Top-left */
+.videoWrapper::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+/* Top-right */
+.videoWrapper::after {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+/* Bottom-left */
+.videoWrapper span::before {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+/* Bottom-right */
+.videoWrapper span::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.videoPlayer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  display: block;
+}
