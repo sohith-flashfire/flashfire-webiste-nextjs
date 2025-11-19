@@ -6,6 +6,8 @@ import Link from "next/link";
 import styles from "./navbar.module.css";
 import type { NavLink, NavbarCTA } from "../../types/navbarData";
 import { trackButtonClick, trackModalOpen } from "@/src/utils/PostHogTracking";
+import { GTagUTM } from "@/src/utils/GTagUTM";
+import CalendlyModal from "@/src/components/calendlyModal/CalendlyModal";
 
 type Props = {
   links: NavLink[];
@@ -14,6 +16,7 @@ type Props = {
 
 export default function NavbarClient({ links, ctas }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -23,6 +26,8 @@ export default function NavbarClient({ links, ctas }: Props) {
   const pathname = usePathname();
   const isCanadaContext = pathname.startsWith("/en-ca");
   const prefix = isCanadaContext ? "/en-ca" : "";
+  
+  const isBookPage = pathname === "/schedule-a-free-career-call" || pathname === "/en-ca/schedule-a-free-career-call";
   
   const isExternalHref = (href: string) => href.startsWith("http");
   const primaryIsExternal = isExternalHref(ctas.primary.href);
@@ -72,6 +77,43 @@ export default function NavbarClient({ links, ctas }: Props) {
 
     return () => clearInterval(interval);
   }, []);
+
+  const openCalendly = () => {
+    const utmSource = typeof window !== "undefined"
+      ? localStorage.getItem("utm_source") || "WEBSITE"
+      : "WEBSITE";
+    const utmMedium = typeof window !== "undefined"
+      ? localStorage.getItem("utm_medium") || "Navigation_Banner"
+      : "Navigation_Banner";
+    
+    // GTag tracking
+    GTagUTM({
+      eventName: "calendly_modal_open",
+      label: "Book_Now_Banner_Button",
+      utmParams: {
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign: typeof window !== "undefined"
+          ? localStorage.getItem("utm_campaign") || "Website"
+          : "Website",
+      },
+    });
+    
+    // PostHog tracking (automatically includes UTM via getUTMContext)
+    trackButtonClick("Book Now", "navigation_banner", "cta", {
+      button_location: "banner",
+      navigation_type: "banner_cta",
+    });
+    trackModalOpen("calendly_modal", "navigation_button", {
+      trigger_source: "banner_cta",
+    });
+    
+    setIsCalendlyOpen(true);
+  };
+
+  const handleCalendlyClose = () => {
+    setIsCalendlyOpen(false);
+  };
 
   return (
     <>
@@ -297,9 +339,27 @@ export default function NavbarClient({ links, ctas }: Props) {
             </div>
           </div>
         </div>
+        <button
+          onClick={openCalendly}
+          className="rounded-full bg-white text-red-600 font-bold px-5 sm:px-6 py-2 shadow-lg hover:shadow-xl transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-sm sm:text-base ml-3 max-[600px]:ml-2"
+        >
+          Book Now
+        </button>
       </div>
     </div>
       </div>
+
+      {/* Calendly Modal */}
+      <CalendlyModal
+        isVisible={isCalendlyOpen}
+        onClose={handleCalendlyClose}
+        user={{
+          fullName: "",
+          email: "",
+          phone: "",
+          countryCode: "",
+        }}
+      />
     </>
   );
 }
