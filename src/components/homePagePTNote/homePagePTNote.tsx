@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import { trackButtonClick, trackExternalLink } from "@/src/utils/PostHogTracking";
+import { GTagUTM } from "@/src/utils/GTagUTM";
 
 export default function HomePagePTNote() {
   const handleWhatsAppClick = () => {
@@ -12,7 +13,27 @@ export default function HomePagePTNote() {
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     
-    // PostHog tracking
+    const utmSource = typeof window !== "undefined"
+      ? localStorage.getItem("utm_source") || "WEBSITE"
+      : "WEBSITE";
+    const utmMedium = typeof window !== "undefined"
+      ? localStorage.getItem("utm_medium") || "PT_Note_WhatsApp_Section"
+      : "PT_Note_WhatsApp_Section";
+    
+    // GTag tracking
+    GTagUTM({
+      eventName: "whatsapp_support_click",
+      label: "PT_Note_WhatsApp_Button",
+      utmParams: {
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign: typeof window !== "undefined"
+          ? localStorage.getItem("utm_campaign") || "Website"
+          : "Website",
+      },
+    });
+    
+    // PostHog tracking (automatically includes UTM via getUTMContext)
     trackButtonClick("Connect on WhatsApp", "pt_note_section", "cta", {
       button_location: "pt_note_whatsapp",
       section: "pt_note"

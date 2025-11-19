@@ -6,21 +6,21 @@ import { useState } from "react";
 export default function HomePageHappyUsers() {
   const videos = [
     {
-      src: "/videos/anjali-shah-ff-review.mp4",
+      videoUrl: "https://www.youtube.com/embed/p41OvikonKo",
       name: "Anjali Shah",
       company: "Skyworks Solutions, Inc.",
       linkedinUrl: "https://www.linkedin.com/in/anjalishah6198/",
       profileImage: "/images/anjali.jpeg",
     },
     {
-      src: "/videos/rijul-jain-ff-review.mp4",
+      videoUrl: "https://www.youtube.com/embed/nYEO8K0q38c",
       name: "Rijul Jain",
       company: "Wise",
       linkedinUrl: "https://www.linkedin.com/in/-rijuljain-/",
       profileImage: "/images/rijul.jpg",
     },
     {
-      src: "/videos/aryan-gupta-ff-review.mp4",
+      videoUrl: "https://www.youtube.com/embed/p9kzhLHjJuI",
       name: "Aryan Gupta",
       company: "IBM",
       linkedinUrl: "#",
@@ -60,41 +60,7 @@ export default function HomePageHappyUsers() {
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
   const handlePlay = (index: number) => {
-    // Pause all other videos
-    videos.forEach((_, i) => {
-      if (i !== index) {
-        const otherVideoEl = document.getElementById(
-          `userVideo-${i}`,
-        ) as HTMLVideoElement;
-        if (otherVideoEl) {
-          otherVideoEl.pause();
-          otherVideoEl.currentTime = 0;
-        }
-      }
-    });
-
-    setPlayingIndex(index);
-    const videoEl = document.getElementById(
-      `userVideo-${index}`,
-    ) as HTMLVideoElement;
-    if (videoEl) {
-      videoEl.play();
-    }
-  };
-
-  const handleVideoPlay = (index: number) => {
-    // Pause all other videos when this one starts playing
-    videos.forEach((_, i) => {
-      if (i !== index) {
-        const otherVideoEl = document.getElementById(
-          `userVideo-${i}`,
-        ) as HTMLVideoElement;
-        if (otherVideoEl) {
-          otherVideoEl.pause();
-          otherVideoEl.currentTime = 0;
-        }
-      }
-    });
+    // Close all other videos
     setPlayingIndex(index);
   };
 
@@ -157,23 +123,27 @@ export default function HomePageHappyUsers() {
               className="relative w-80 h-[32rem] rounded-none overflow-hidden bg-[#fffaf8] p-2 shadow-[0_8px_20px_rgba(0,0,0,0.25)] transition-all duration-300 flex-shrink-0 hover:shadow-[0_14px_28px_rgba(0,0,0,0.3)]"
             >
               <div className="relative w-full h-full rounded-none overflow-hidden">
-                <video
-                  id={`userVideo-${index}`}
-                  className={`w-full h-full object-cover block rounded-none cursor-pointer ${playingIndex === index ? "block" : "hidden"}`}
-                  controls={playingIndex === index}
-                  muted
-                  loop
-                  playsInline
-                  onPlay={() => handleVideoPlay(index)}
-                  onPause={() => {
-                    if (playingIndex === index) {
-                      setPlayingIndex(null);
-                    }
-                  }}
-                >
-                  <source src={video.src} type="video/mp4" />
-                  Your browser does not support HTML video.
-                </video>
+                {/* YouTube Video Embed - Show when playing */}
+                {playingIndex === index && (
+                  <>
+                    <iframe
+                      id={`userVideo-${index}`}
+                      src={`${video.videoUrl}?autoplay=1&rel=0`}
+                      className="w-full h-full object-cover block rounded-none"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      frameBorder="0"
+                    />
+                    {/* Close Button */}
+                    <button
+                      onClick={() => setPlayingIndex(null)}
+                      className="absolute top-2 right-2 w-8 h-8 bg-black/70 hover:bg-black/90 text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 z-30"
+                      aria-label="Close video"
+                    >
+                      ✕
+                    </button>
+                  </>
+                )}
 
                 {/* Thumbnail Image Overlay - Show when video is not playing */}
                 {playingIndex !== index && (
