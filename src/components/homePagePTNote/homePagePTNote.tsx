@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import { trackButtonClick, trackExternalLink } from "@/src/utils/PostHogTracking";
+import FlashfireLogo from "@/src/components/FlashfireLogo";
 
 export default function HomePagePTNote() {
   const handleWhatsAppClick = () => {
@@ -53,12 +54,11 @@ export default function HomePagePTNote() {
             </div>
             <p className="text-[1.8rem] text-white mx-4">|</p>
             <div>
-              <Image
-                src="/images/flashfire-logo-white.png"
-                alt="Flashfire Logo"
+              <FlashfireLogo
+                variant="white"
                 width={20}
-                height={40}
-                className="w-5 h-5 border border-white"
+                height={20}
+                className="w-5 h-5"
               />
             </div>
             <div className="text-white font-semibold ml-2">Flashfire</div>
