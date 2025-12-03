@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import PricingCard from "./pricingCard";
 import Image from "next/image";
 import { usPricingPlans, canadaPricingPlans } from "@/src/data/pricingData";
+import FlashfireLogo from "@/src/components/FlashfireLogo";
 
 export default function HomePagePricingPlans() {
   const pathname = usePathname();
@@ -91,9 +92,8 @@ export default function HomePagePricingPlans() {
 
             {/* Orange Checkmark in Starburst Icon - on the right */}
             <div className="flex-shrink-0 relative w-32 h-32 -ml-6">
-              <Image
-                src="/images/flashfire-logo.png"
-                alt="Checkmark Badge"
+              <FlashfireLogo
+                variant="white"
                 width={128}
                 height={128}
                 className="w-full h-full object-contain"

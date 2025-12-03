@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import { trackButtonClick, trackExternalLink } from "@/src/utils/PostHogTracking";
+import { GTagUTM } from "@/src/utils/GTagUTM";
+import FlashfireLogo from "@/src/components/FlashfireLogo";
 
 export default function HomePagePTNote() {
   const handleWhatsAppClick = () => {
@@ -12,7 +14,27 @@ export default function HomePagePTNote() {
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     
-    // PostHog tracking
+    const utmSource = typeof window !== "undefined"
+      ? localStorage.getItem("utm_source") || "WEBSITE"
+      : "WEBSITE";
+    const utmMedium = typeof window !== "undefined"
+      ? localStorage.getItem("utm_medium") || "PT_Note_WhatsApp_Section"
+      : "PT_Note_WhatsApp_Section";
+    
+    // GTag tracking
+    GTagUTM({
+      eventName: "whatsapp_support_click",
+      label: "PT_Note_WhatsApp_Button",
+      utmParams: {
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign: typeof window !== "undefined"
+          ? localStorage.getItem("utm_campaign") || "Website"
+          : "Website",
+      },
+    });
+    
+    // PostHog tracking (automatically includes UTM via getUTMContext)
     trackButtonClick("Connect on WhatsApp", "pt_note_section", "cta", {
       button_location: "pt_note_whatsapp",
       section: "pt_note"
@@ -53,12 +75,11 @@ export default function HomePagePTNote() {
             </div>
             <p className="text-[1.8rem] text-white mx-4">|</p>
             <div>
-              <Image
-                src="/images/flashfire-logo-white.png"
-                alt="Flashfire Logo"
+              <FlashfireLogo
+                variant="white"
                 width={20}
-                height={40}
-                className="w-5 h-5 border border-white"
+                height={20}
+                className="w-5 h-5"
               />
             </div>
             <div className="text-white font-semibold ml-2">Flashfire</div>

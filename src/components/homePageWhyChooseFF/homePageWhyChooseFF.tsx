@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
+import FlashfireLogo from "@/src/components/FlashfireLogo";
 
 const featureCardBase =
   "flex flex-col justify-between bg-[#fffdfc] border border-[#94959a] rounded-[0.3rem] p-8 text-left h-[21rem] shadow-[0_2px_6px_rgba(0,0,0,0.03)] transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_6px_12px_rgba(0,0,0,0.08)] max-[768px]:w-full max-[768px]:h-auto max-[768px]:p-6";
@@ -155,12 +156,12 @@ export default function HomePageWhyChooseFF() {
                 </div>
                 <div className="flex items-center gap-2">
                   <div>
-                    <Image
-                      src="/images/flashfire-logo-white.png"
-                      alt="Flashfire logo"
+                    <FlashfireLogo
+                      variant="white"
+
                       width={24}
                       height={24}
-                      className="brightness-100"
+
                     />
                   </div>
                   <p className="font-semibold">Flashfire</p>

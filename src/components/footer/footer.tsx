@@ -5,6 +5,7 @@ import styles from "./footer.module.css";
 import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import FlashfireLogo from "@/src/components/FlashfireLogo";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -25,9 +26,8 @@ export default function Footer() {
         {/* Logo */}
         <div className={styles.logoSection}>
           <div className={styles.logoWrapper}>
-            <Image
-              src="/images/flashfire-logo-white.png"
-              alt="Flashfire Logo"
+            <FlashfireLogo
+              variant="white"
               width={40}
               height={40}
             />

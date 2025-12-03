@@ -7,6 +7,7 @@ import { HeroSectionData } from "@/src/types/heroSectionData";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { getCurrentUTMParams } from "@/src/utils/UTMUtils";
+import FlashfireLogo from "@/src/components/FlashfireLogo";
 
 type Props = {
   data: HeroSectionData;
@@ -31,9 +32,8 @@ export default function HeroSectionClient({ data }: Props) {
         <span className={styles.heroHeadlineText}>{data.headlineMain}</span>
         <span className={styles.heroHeadlineText}>
           <span className={styles.heroHighlight}>{data.headlineHighlight}</span>
-          <Image
-            src="/images/flashfire-logo.png"
-            alt="Flashfire Logo"
+          <FlashfireLogo
+            variant="white"
             width={60}
             height={60}
             className={styles.heroLogo}

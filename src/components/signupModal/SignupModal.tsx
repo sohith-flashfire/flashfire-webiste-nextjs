@@ -24,11 +24,6 @@ export default function SignupModal({ isOpen, onClose }: SignupModalProps) {
   const prevIsOpenRef = useRef(isOpen);
 
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-  
-  if (!API_BASE_URL) {
-    console.error("NEXT_PUBLIC_API_BASE_URL is not set");
-    // In production, this should be set via environment variables
-  }
 
   // Load form data from localStorage when modal opens and track events
   useEffect(() => {
